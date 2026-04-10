@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aris Portfolio</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px;
+      background: #020617;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 42px;
+    }
+
+    header p {
+      color: #94a3b8;
+      margin-top: 8px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      margin: 30px 0 15px;
+      border-bottom: 2px solid #1e293b;
+      padding-bottom: 5px;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 12px;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .role {
+      color: #38bdf8;
+      margin: 5px 0;
+    }
+
+    .info {
+      color: #94a3b8;
+      margin-bottom: 10px;
+    }
+
+    a {
+      color: #38bdf8;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .badge {
+      background: #0f172a;
+      border: 1px solid #334155;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      color: #38bdf8;
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .stat {
+      flex: 1;
+      min-width: 150px;
+      background: #1e293b;
+      padding: 15px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .stat h2 {
+      margin: 0;
+      color: #38bdf8;
+    }
+
+    .stat p {
+      margin: 5px 0 0;
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .filter-btn {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .filter-btn:hover {
+      background: #334155;
+    }
+
+    .server-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 15px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 32px;
+      }
+
+      .stat {
+        min-width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Aris</h1>
+    <p>Discord Staff Portfolio</p>
+
+    <!-- ✅ ADDED ONLY THIS -->
+    <p style="color:#64748b; font-size:14px; margin-top:6px;">
+      Last updated: April 2026
+    </p>
+  </header>
+
+  <div class="container">
+
+    <!-- ABOUT -->
+    <div class="section-title">About Me</div>
+    <div class="card">
+      <p>
+        I am a Discord staff member experienced in server management,
+        partnerships, moderation, and community growth.
+      </p>
+
+      <div class="badges">
+        <div class="badge">Partner Manager</div>
+        <div class="badge">Helper</div>
+        <div class="badge">Ticket Helper</div>
+      </div>
+    </div>
+
+    <!-- WARNINGS -->
+    <div class="section-title">Warnings</div>
+    <div class="card">
+      <ul>
+        <li>Don’t DM me for stupid reasons.</li>
+        <li>There isn’t a 100% chance I will become staff in your server if you DM me.</li>
+        <li>I will not make any websites for anyone.</li>
+        <li>Don’t beg for staff in any server I’m in, or in my DMs.</li>
+        <li>If you want to partner, use the links from the website. Don’t come to my DMs for that.</li>
+      </ul>
+    </div>
+
+    <!-- STATS -->
+    <div class="section-title">Stats</div>
+    <div class="stats">
+
+      <div class="stat">
+        <h2>50+</h2>
+        <p>Servers Worked In</p>
+      </div>
+
+      <div class="stat">
+        <h2>5</h2>
+        <p>Currently In</p>
+      </div>
+
+      <div class="stat">
+        <h2>17K</h2>
+        <p>Largest Server</p>
+      </div>
+
+      <div class="stat">
+        <h2>3.5</h2>
+        <p>Years Experience</p>
+      </div>
+
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="section-title">Experience</div>
+
+    <div class="filters">
+      <button class="filter-btn" onclick="filter('all')">All</button>
+      <button class="filter-btn" onclick="filter('partner')">Partner Manager</button>
+      <button class="filter-btn" onclick="filter('helper')">Helper</button>
+      <button class="filter-btn" onclick="filter('ticket')">Ticket Helper</button>
+    </div>
+
+    <div class="server-grid">
+
+      <div class="card item partner">
+        <h3>⭐ Star SMP</h3>
+        <p class="role">Partner Manager</p>
+        <p class="info">Members: 1.5K</p>
+        <a href="https://discord.gg/5nfzvrfN" target="_blank">Join Server</a>
+      </div>
+
+      <div class="card item helper">
+        <h3>⚡ MeteorFFA</h3>
+        <p class="role">Helper</p>
+        <p class="info">Members: 1.5K</p>
+        <a href="https://discord.gg/nH2Tj3aB" target="_blank">Join Server</a>
+      </div>
+
+      <div class="card item partner">
+        <h3>🔥 SMP Connect</h3>
+        <p class="role">Partner Manager</p>
+        <p class="info">Members: 1.1K</p>
+        <a href="https://discord.gg/jC8uXAqY" target="_blank">Join Server</a>
+      </div>
+
+      <div class="card item partner ticket">
+        <h3>⚔️ SpearMaceFFA</h3>
+        <p class="role">Partner Manager / Ticket Helper</p>
+        <p class="info">Members: 1.1K</p>
+        <a href="https://discord.gg/Cb5FHgbu" target="_blank">Join Server</a>
+      </div>
+
+    </div>
+
+    <!-- CONTACT -->
+    <div class="section-title">Contact</div>
+    <div class="card">
+      <p>Discord: <b>NotArisCM</b></p>
+    </div>
+
+  </div>
+
+  <script>
+    function filter(type) {
+      let items = document.querySelectorAll('.item');
+
+      items.forEach(item => {
+        if (type === 'all') {
+          item.style.display = 'block';
+        } else {
+          if (item.classList.contains(type)) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
