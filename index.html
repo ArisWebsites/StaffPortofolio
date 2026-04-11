@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale="1.0">
+
+<!-- ✅ FIXED VIEWPORT -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Aris Portfolio</title>
 
 <style>
@@ -11,6 +14,7 @@ body {
   font-family: Arial, sans-serif;
   background: radial-gradient(circle at top, #0f172a, #020617);
   color: white;
+  overflow-x: hidden;
 }
 
 /* HEADER */
@@ -30,9 +34,11 @@ header p {
 
 /* CONTAINER */
 .container {
+  width: 100%;
   max-width: 1000px;
   margin: auto;
-  padding: 20px;
+  padding: 15px;
+  box-sizing: border-box;
 }
 
 /* SECTION */
@@ -44,8 +50,10 @@ header p {
   padding-left: 10px;
 }
 
-/* CARDS (GLASS STYLE) */
+/* CARD */
 .card {
+  width: 100%;
+  box-sizing: border-box;
   background: rgba(255,255,255,0.05);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,0.08);
@@ -131,6 +139,25 @@ a {
   text-decoration: none;
   font-weight: bold;
 }
+
+/* ✅ MOBILE IMPROVEMENTS */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 32px;
+  }
+
+  .dots span {
+    font-size: 22px;
+  }
+
+  .section-title {
+    font-size: 18px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+}
 </style>
 </head>
 
@@ -143,13 +170,11 @@ a {
 
 <div class="container">
 
-<!-- ABOUT -->
 <div class="section-title">About Me</div>
 <div class="card">
 Discord staff experienced in partnerships, moderation, and server management.
 </div>
 
-<!-- STATS -->
 <div class="section-title">Stats</div>
 <div class="stats">
   <div class="stat"><h2>50+</h2><p>Servers</p></div>
@@ -158,27 +183,26 @@ Discord staff experienced in partnerships, moderation, and server management.
   <div class="stat"><h2>3.5</h2><p>Years</p></div>
 </div>
 
-<!-- SERVERS -->
 <div class="section-title">Experience & Daily Tracker</div>
 
-<!-- STAR SMP -->
+<!-- STAR -->
 <div class="card server">
 <h3>⭐ Star SMP</h3>
 <p class="role">Partner Manager</p>
 <p class="info">Members: 1.5K</p>
 <a href="https://discord.gg/5nfzvrfN">Join Server</a>
 
-<div class="dots" data-server="star">
-  <span onclick="toggle(this,'star1')">○</span>
-  <span onclick="toggle(this,'star2')">○</span>
-  <span onclick="toggle(this,'star3')">○</span>
-  <span onclick="toggle(this,'star4')">○</span>
-  <span onclick="toggle(this,'star5')">○</span>
-  <span onclick="toggle(this,'star6')">○</span>
-  <span onclick="toggle(this,'star7')">○</span>
-  <span onclick="toggle(this,'star8')">○</span>
-  <span onclick="toggle(this,'star9')">○</span>
-  <span onclick="toggle(this,'star10')">○</span>
+<div class="dots">
+<span onclick="toggle(this,'star1')">○</span>
+<span onclick="toggle(this,'star2')">○</span>
+<span onclick="toggle(this,'star3')">○</span>
+<span onclick="toggle(this,'star4')">○</span>
+<span onclick="toggle(this,'star5')">○</span>
+<span onclick="toggle(this,'star6')">○</span>
+<span onclick="toggle(this,'star7')">○</span>
+<span onclick="toggle(this,'star8')">○</span>
+<span onclick="toggle(this,'star9')">○</span>
+<span onclick="toggle(this,'star10')">○</span>
 </div>
 
 <div class="progress"><div class="bar" id="bar-star"></div></div>
@@ -192,22 +216,22 @@ Discord staff experienced in partnerships, moderation, and server management.
 <a href="https://discord.gg/nH2Tj3aB">Join Server</a>
 
 <div class="dots">
-  <span onclick="toggle(this,'met1')">○</span>
-  <span onclick="toggle(this,'met2')">○</span>
-  <span onclick="toggle(this,'met3')">○</span>
-  <span onclick="toggle(this,'met4')">○</span>
-  <span onclick="toggle(this,'met5')">○</span>
-  <span onclick="toggle(this,'met6')">○</span>
-  <span onclick="toggle(this,'met7')">○</span>
-  <span onclick="toggle(this,'met8')">○</span>
-  <span onclick="toggle(this,'met9')">○</span>
-  <span onclick="toggle(this,'met10')">○</span>
+<span onclick="toggle(this,'met1')">○</span>
+<span onclick="toggle(this,'met2')">○</span>
+<span onclick="toggle(this,'met3')">○</span>
+<span onclick="toggle(this,'met4')">○</span>
+<span onclick="toggle(this,'met5')">○</span>
+<span onclick="toggle(this,'met6')">○</span>
+<span onclick="toggle(this,'met7')">○</span>
+<span onclick="toggle(this,'met8')">○</span>
+<span onclick="toggle(this,'met9')">○</span>
+<span onclick="toggle(this,'met10')">○</span>
 </div>
 
 <div class="progress"><div class="bar" id="bar-meteor"></div></div>
 </div>
 
-<!-- SMP CONNECT -->
+<!-- SMP -->
 <div class="card server">
 <h3>🔥 SMP Connect</h3>
 <p class="role">Partner Manager</p>
@@ -215,16 +239,16 @@ Discord staff experienced in partnerships, moderation, and server management.
 <a href="https://discord.gg/jC8uXAqY">Join Server</a>
 
 <div class="dots">
-  <span onclick="toggle(this,'smp1')">○</span>
-  <span onclick="toggle(this,'smp2')">○</span>
-  <span onclick="toggle(this,'smp3')">○</span>
-  <span onclick="toggle(this,'smp4')">○</span>
-  <span onclick="toggle(this,'smp5')">○</span>
-  <span onclick="toggle(this,'smp6')">○</span>
-  <span onclick="toggle(this,'smp7')">○</span>
-  <span onclick="toggle(this,'smp8')">○</span>
-  <span onclick="toggle(this,'smp9')">○</span>
-  <span onclick="toggle(this,'smp10')">○</span>
+<span onclick="toggle(this,'smp1')">○</span>
+<span onclick="toggle(this,'smp2')">○</span>
+<span onclick="toggle(this,'smp3')">○</span>
+<span onclick="toggle(this,'smp4')">○</span>
+<span onclick="toggle(this,'smp5')">○</span>
+<span onclick="toggle(this,'smp6')">○</span>
+<span onclick="toggle(this,'smp7')">○</span>
+<span onclick="toggle(this,'smp8')">○</span>
+<span onclick="toggle(this,'smp9')">○</span>
+<span onclick="toggle(this,'smp10')">○</span>
 </div>
 
 <div class="progress"><div class="bar" id="bar-smp"></div></div>
@@ -238,16 +262,16 @@ Discord staff experienced in partnerships, moderation, and server management.
 <a href="https://discord.gg/Cb5FHgbu">Join Server</a>
 
 <div class="dots">
-  <span onclick="toggle(this,'spe1')">○</span>
-  <span onclick="toggle(this,'spe2')">○</span>
-  <span onclick="toggle(this,'spe3')">○</span>
-  <span onclick="toggle(this,'spe4')">○</span>
-  <span onclick="toggle(this,'spe5')">○</span>
-  <span onclick="toggle(this,'spe6')">○</span>
-  <span onclick="toggle(this,'spe7')">○</span>
-  <span onclick="toggle(this,'spe8')">○</span>
-  <span onclick="toggle(this,'spe9')">○</span>
-  <span onclick="toggle(this,'spe10')">○</span>
+<span onclick="toggle(this,'spe1')">○</span>
+<span onclick="toggle(this,'spe2')">○</span>
+<span onclick="toggle(this,'spe3')">○</span>
+<span onclick="toggle(this,'spe4')">○</span>
+<span onclick="toggle(this,'spe5')">○</span>
+<span onclick="toggle(this,'spe6')">○</span>
+<span onclick="toggle(this,'spe7')">○</span>
+<span onclick="toggle(this,'spe8')">○</span>
+<span onclick="toggle(this,'spe9')">○</span>
+<span onclick="toggle(this,'spe10')">○</span>
 </div>
 
 <div class="progress"><div class="bar" id="bar-spear"></div></div>
@@ -256,8 +280,6 @@ Discord staff experienced in partnerships, moderation, and server management.
 </div>
 
 <script>
-
-/* TOGGLE DOTS */
 function toggle(el,id){
   if(el.innerText==="○"){
     el.innerText="✔";
@@ -269,7 +291,6 @@ function toggle(el,id){
   updateBars();
 }
 
-/* LOAD SAVED */
 function load(){
   document.querySelectorAll(".dots span").forEach(dot=>{
     let id = dot.getAttribute("onclick").split("'")[1];
@@ -280,41 +301,26 @@ function load(){
   updateBars();
 }
 
-/* PROGRESS BARS */
 function updateBars(){
-  let servers = ["star","meteor","smp","spe"];
+  const mapping = {
+    star:"bar-star",
+    met:"bar-meteor",
+    smp:"bar-smp",
+    spe:"bar-spear"
+  };
 
-  servers.forEach(s=>{
-    let dots = document.querySelectorAll(`[onclick*="${s}"]`);
-    let done = 0;
-
-    dots.forEach(d=>{
-      let id = d.getAttribute("onclick").split("'")[1];
-      if(localStorage.getItem(id)==="1") done++;
-    });
-
-    let percent = (done/10)*100;
-    let bar = document.getElementById("bar-"+s);
-    if(bar) bar.style.width = percent+"%";
+  Object.keys(mapping).forEach(prefix=>{
+    let count=0;
+    for(let i=1;i<=10;i++){
+      if(localStorage.getItem(prefix+i)==="1") count++;
+    }
+    let percent=(count/10)*100;
+    let bar=document.getElementById(mapping[prefix]);
+    if(bar) bar.style.width=percent+"%";
   });
 }
 
-/* DAILY RESET (GMT+2) */
-function checkReset(){
-  let now = new Date();
-  let utc = now.getTime() + now.getTimezoneOffset()*60000;
-  let gmt2 = new Date(utc + 2*60*60000);
-
-  if(gmt2.getHours() === 0){
-    localStorage.clear();
-    location.reload();
-  }
-}
-
 load();
-checkReset();
-setInterval(checkReset,60000);
-
 </script>
 
 </body>
