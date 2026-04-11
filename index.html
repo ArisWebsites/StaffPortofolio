@@ -48,6 +48,7 @@ header p {
   margin-bottom: 15px;
 }
 
+/* STATS */
 .stats {
   display: flex;
   flex-wrap: wrap;
@@ -73,9 +74,32 @@ header p {
   color: #94a3b8;
 }
 
+/* SERVER CARD */
+.server {
+  background: #1e293b;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.role {
+  color: #38bdf8;
+  font-weight: bold;
+}
+
+.info {
+  color: #94a3b8;
+}
+
+a {
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: bold;
+}
+
 /* DOTS */
 .dots {
-  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .dots span {
@@ -88,13 +112,6 @@ header p {
 
 .dots span:hover {
   color: #38bdf8;
-}
-
-/* SERVER LINKS */
-a {
-  color: #38bdf8;
-  text-decoration: none;
-  font-weight: bold;
 }
 </style>
 </head>
@@ -111,95 +128,132 @@ a {
 <!-- ABOUT -->
 <div class="section-title">About Me</div>
 <div class="card">
-  Discord staff experienced in partnerships, moderation, and server management.
+  Discord staff member experienced in server management, partnerships, moderation, and ticket support.
+</div>
+
+<!-- WARNINGS -->
+<div class="section-title">Warnings</div>
+<div class="card">
+<ul>
+<li>Don’t DM me for stupid reasons.</li>
+<li>I will not make websites for anyone.</li>
+<li>Don’t beg for staff in my DMs or servers.</li>
+<li>Use server links for partnerships only.</li>
+<li>There is no guarantee I will accept staff requests.</li>
+</ul>
 </div>
 
 <!-- STATS -->
 <div class="section-title">Stats</div>
 <div class="stats">
-  <div class="stat"><h2>50+</h2><p>Servers</p></div>
-  <div class="stat"><h2>5</h2><p>Active</p></div>
-  <div class="stat"><h2>17K</h2><p>Largest</p></div>
-  <div class="stat"><h2>3.5</h2><p>Years</p></div>
+
+<div class="stat">
+<h2>50+</h2>
+<p>Servers Worked In</p>
 </div>
 
-<!-- TRACKER -->
-<div class="section-title">Daily Partner Tracker</div>
+<div class="stat">
+<h2>5</h2>
+<p>Currently In</p>
+</div>
 
-<div class="card">
+<div class="stat">
+<h2>17K</h2>
+<p>Largest Server</p>
+</div>
 
-  <h3>⭐ Star SMP</h3>
-  <div class="dots">
-    <span onclick="toggle(this,'star1')">○</span>
-    <span onclick="toggle(this,'star2')">○</span>
-    <span onclick="toggle(this,'star3')">○</span>
-    <span onclick="toggle(this,'star4')">○</span>
-    <span onclick="toggle(this,'star5')">○</span>
-    <span onclick="toggle(this,'star6')">○</span>
-    <span onclick="toggle(this,'star7')">○</span>
-    <span onclick="toggle(this,'star8')">○</span>
-    <span onclick="toggle(this,'star9')">○</span>
-    <span onclick="toggle(this,'star10')">○</span>
-  </div>
-  <a href="https://discord.gg/5nfzvrfN">Join Server</a>
+<div class="stat">
+<h2>3.5</h2>
+<p>Years Experience</p>
+</div>
 
 </div>
 
-<div class="card">
+<!-- EXPERIENCE + TRACKER -->
+<div class="section-title">Experience & Daily Tracker</div>
 
-  <h3>⚡ MeteorFFA</h3>
-  <div class="dots">
-    <span onclick="toggle(this,'met1')">○</span>
-    <span onclick="toggle(this,'met2')">○</span>
-    <span onclick="toggle(this,'met3')">○</span>
-    <span onclick="toggle(this,'met4')">○</span>
-    <span onclick="toggle(this,'met5')">○</span>
-    <span onclick="toggle(this,'met6')">○</span>
-    <span onclick="toggle(this,'met7')">○</span>
-    <span onclick="toggle(this,'met8')">○</span>
-    <span onclick="toggle(this,'met9')">○</span>
-    <span onclick="toggle(this,'met10')">○</span>
-  </div>
-  <a href="https://discord.gg/nH2Tj3aB">Join Server</a>
+<!-- STAR SMP -->
+<div class="server">
+<h3>⭐ Star SMP</h3>
+<p class="role">Partner Manager</p>
+<p class="info">Members: 1.5K</p>
+<a href="https://discord.gg/5nfzvrfN">Join Server</a>
 
+<div class="dots">
+<span onclick="toggle(this,'star1')">○</span>
+<span onclick="toggle(this,'star2')">○</span>
+<span onclick="toggle(this,'star3')">○</span>
+<span onclick="toggle(this,'star4')">○</span>
+<span onclick="toggle(this,'star5')">○</span>
+<span onclick="toggle(this,'star6')">○</span>
+<span onclick="toggle(this,'star7')">○</span>
+<span onclick="toggle(this,'star8')">○</span>
+<span onclick="toggle(this,'star9')">○</span>
+<span onclick="toggle(this,'star10')">○</span>
+</div>
 </div>
 
-<div class="card">
+<!-- METEORFFA -->
+<div class="server">
+<h3>⚡ MeteorFFA</h3>
+<p class="role">Helper</p>
+<p class="info">Members: 1.5K</p>
+<a href="https://discord.gg/nH2Tj3aB">Join Server</a>
 
-  <h3>🔥 SMP Connect</h3>
-  <div class="dots">
-    <span onclick="toggle(this,'smp1')">○</span>
-    <span onclick="toggle(this,'smp2')">○</span>
-    <span onclick="toggle(this,'smp3')">○</span>
-    <span onclick="toggle(this,'smp4')">○</span>
-    <span onclick="toggle(this,'smp5')">○</span>
-    <span onclick="toggle(this,'smp6')">○</span>
-    <span onclick="toggle(this,'smp7')">○</span>
-    <span onclick="toggle(this,'smp8')">○</span>
-    <span onclick="toggle(this,'smp9')">○</span>
-    <span onclick="toggle(this,'smp10')">○</span>
-  </div>
-  <a href="https://discord.gg/jC8uXAqY">Join Server</a>
-
+<div class="dots">
+<span onclick="toggle(this,'met1')">○</span>
+<span onclick="toggle(this,'met2')">○</span>
+<span onclick="toggle(this,'met3')">○</span>
+<span onclick="toggle(this,'met4')">○</span>
+<span onclick="toggle(this,'met5')">○</span>
+<span onclick="toggle(this,'met6')">○</span>
+<span onclick="toggle(this,'met7')">○</span>
+<span onclick="toggle(this,'met8')">○</span>
+<span onclick="toggle(this,'met9')">○</span>
+<span onclick="toggle(this,'met10')">○</span>
+</div>
 </div>
 
-<div class="card">
+<!-- SMP CONNECT -->
+<div class="server">
+<h3>🔥 SMP Connect</h3>
+<p class="role">Partner Manager</p>
+<p class="info">Members: 1.1K</p>
+<a href="https://discord.gg/jC8uXAqY">Join Server</a>
 
-  <h3>⚔️ SpearMaceFFA</h3>
-  <div class="dots">
-    <span onclick="toggle(this,'spe1')">○</span>
-    <span onclick="toggle(this,'spe2')">○</span>
-    <span onclick="toggle(this,'spe3')">○</span>
-    <span onclick="toggle(this,'spe4')">○</span>
-    <span onclick="toggle(this,'spe5')">○</span>
-    <span onclick="toggle(this,'spe6')">○</span>
-    <span onclick="toggle(this,'spe7')">○</span>
-    <span onclick="toggle(this,'spe8')">○</span>
-    <span onclick="toggle(this,'spe9')">○</span>
-    <span onclick="toggle(this,'spe10')">○</span>
-  </div>
-  <a href="https://discord.gg/Cb5FHgbu">Join Server</a>
+<div class="dots">
+<span onclick="toggle(this,'smp1')">○</span>
+<span onclick="toggle(this,'smp2')">○</span>
+<span onclick="toggle(this,'smp3')">○</span>
+<span onclick="toggle(this,'smp4')">○</span>
+<span onclick="toggle(this,'smp5')">○</span>
+<span onclick="toggle(this,'smp6')">○</span>
+<span onclick="toggle(this,'smp7')">○</span>
+<span onclick="toggle(this,'smp8')">○</span>
+<span onclick="toggle(this,'smp9')">○</span>
+<span onclick="toggle(this,'smp10')">○</span>
+</div>
+</div>
 
+<!-- SPEARMACEFFA -->
+<div class="server">
+<h3>⚔️ SpearMaceFFA</h3>
+<p class="role">Partner Manager / Ticket Helper</p>
+<p class="info">Members: 1.1K</p>
+<a href="https://discord.gg/Cb5FHgbu">Join Server</a>
+
+<div class="dots">
+<span onclick="toggle(this,'spe1')">○</span>
+<span onclick="toggle(this,'spe2')">○</span>
+<span onclick="toggle(this,'spe3')">○</span>
+<span onclick="toggle(this,'spe4')">○</span>
+<span onclick="toggle(this,'spe5')">○</span>
+<span onclick="toggle(this,'spe6')">○</span>
+<span onclick="toggle(this,'spe7')">○</span>
+<span onclick="toggle(this,'spe8')">○</span>
+<span onclick="toggle(this,'spe9')">○</span>
+<span onclick="toggle(this,'spe10')">○</span>
+</div>
 </div>
 
 </div>
