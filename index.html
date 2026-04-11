@@ -2,99 +2,93 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale="1.0">
 <title>Aris Portfolio</title>
 
 <style>
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #0f172a;
+  background: radial-gradient(circle at top, #0f172a, #020617);
   color: white;
 }
 
+/* HEADER */
 header {
   text-align: center;
   padding: 50px 20px;
-  background: #020617;
 }
 
 header h1 {
-  margin: 0;
   font-size: 42px;
+  margin: 0;
 }
 
 header p {
   color: #94a3b8;
 }
 
+/* CONTAINER */
 .container {
   max-width: 1000px;
   margin: auto;
   padding: 20px;
 }
 
+/* SECTION */
 .section-title {
-  font-size: 22px;
-  margin: 30px 0 15px;
-  border-bottom: 2px solid #1e293b;
-  padding-bottom: 5px;
+  font-size: 20px;
+  margin: 30px 0 10px;
+  color: #38bdf8;
+  border-left: 4px solid #38bdf8;
+  padding-left: 10px;
 }
 
+/* CARDS (GLASS STYLE) */
 .card {
-  background: #1e293b;
-  padding: 20px;
-  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 18px;
+  border-radius: 14px;
   margin-bottom: 15px;
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
 }
 
 /* STATS */
 .stats {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
   gap: 10px;
 }
 
 .stat {
-  flex: 1;
-  min-width: 150px;
-  background: #1e293b;
+  background: rgba(255,255,255,0.05);
   padding: 15px;
   border-radius: 12px;
   text-align: center;
 }
 
 .stat h2 {
-  margin: 0;
   color: #38bdf8;
+  margin: 0;
 }
 
-.stat p {
-  margin: 5px 0 0;
-  color: #94a3b8;
-}
-
-/* SERVER CARD */
-.server {
-  background: #1e293b;
-  padding: 15px;
-  border-radius: 12px;
-  margin-bottom: 10px;
+/* SERVER */
+.server h3 {
+  margin: 0;
 }
 
 .role {
   color: #38bdf8;
-  font-weight: bold;
 }
 
 .info {
   color: #94a3b8;
-}
-
-a {
-  color: #38bdf8;
-  text-decoration: none;
-  font-weight: bold;
 }
 
 /* DOTS */
@@ -103,7 +97,7 @@ a {
 }
 
 .dots span {
-  font-size: 28px;
+  font-size: 26px;
   cursor: pointer;
   margin-right: 6px;
   color: #64748b;
@@ -112,6 +106,30 @@ a {
 
 .dots span:hover {
   color: #38bdf8;
+}
+
+/* PROGRESS BAR */
+.progress {
+  width: 100%;
+  height: 10px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 20px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg,#38bdf8,#8b5cf6);
+  transition: 0.3s;
+}
+
+/* LINK */
+a {
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: bold;
 }
 </style>
 </head>
@@ -128,156 +146,175 @@ a {
 <!-- ABOUT -->
 <div class="section-title">About Me</div>
 <div class="card">
-  Discord staff member experienced in server management, partnerships, moderation, and ticket support.
-</div>
-
-<!-- WARNINGS -->
-<div class="section-title">Warnings</div>
-<div class="card">
-<ul>
-<li>Don’t DM me for stupid reasons.</li>
-<li>I will not make websites for anyone.</li>
-<li>Don’t beg for staff in my DMs or servers.</li>
-<li>Use server links for partnerships only.</li>
-<li>There is no guarantee I will accept staff requests.</li>
-</ul>
+Discord staff experienced in partnerships, moderation, and server management.
 </div>
 
 <!-- STATS -->
 <div class="section-title">Stats</div>
 <div class="stats">
-
-<div class="stat">
-<h2>50+</h2>
-<p>Servers Worked In</p>
+  <div class="stat"><h2>50+</h2><p>Servers</p></div>
+  <div class="stat"><h2>5</h2><p>Active</p></div>
+  <div class="stat"><h2>17K</h2><p>Largest</p></div>
+  <div class="stat"><h2>3.5</h2><p>Years</p></div>
 </div>
 
-<div class="stat">
-<h2>5</h2>
-<p>Currently In</p>
-</div>
-
-<div class="stat">
-<h2>17K</h2>
-<p>Largest Server</p>
-</div>
-
-<div class="stat">
-<h2>3.5</h2>
-<p>Years Experience</p>
-</div>
-
-</div>
-
-<!-- EXPERIENCE + TRACKER -->
+<!-- SERVERS -->
 <div class="section-title">Experience & Daily Tracker</div>
 
 <!-- STAR SMP -->
-<div class="server">
+<div class="card server">
 <h3>⭐ Star SMP</h3>
 <p class="role">Partner Manager</p>
 <p class="info">Members: 1.5K</p>
 <a href="https://discord.gg/5nfzvrfN">Join Server</a>
 
-<div class="dots">
-<span onclick="toggle(this,'star1')">○</span>
-<span onclick="toggle(this,'star2')">○</span>
-<span onclick="toggle(this,'star3')">○</span>
-<span onclick="toggle(this,'star4')">○</span>
-<span onclick="toggle(this,'star5')">○</span>
-<span onclick="toggle(this,'star6')">○</span>
-<span onclick="toggle(this,'star7')">○</span>
-<span onclick="toggle(this,'star8')">○</span>
-<span onclick="toggle(this,'star9')">○</span>
-<span onclick="toggle(this,'star10')">○</span>
-</div>
+<div class="dots" data-server="star">
+  <span onclick="toggle(this,'star1')">○</span>
+  <span onclick="toggle(this,'star2')">○</span>
+  <span onclick="toggle(this,'star3')">○</span>
+  <span onclick="toggle(this,'star4')">○</span>
+  <span onclick="toggle(this,'star5')">○</span>
+  <span onclick="toggle(this,'star6')">○</span>
+  <span onclick="toggle(this,'star7')">○</span>
+  <span onclick="toggle(this,'star8')">○</span>
+  <span onclick="toggle(this,'star9')">○</span>
+  <span onclick="toggle(this,'star10')">○</span>
 </div>
 
-<!-- METEORFFA -->
-<div class="server">
+<div class="progress"><div class="bar" id="bar-star"></div></div>
+</div>
+
+<!-- METEOR -->
+<div class="card server">
 <h3>⚡ MeteorFFA</h3>
 <p class="role">Helper</p>
 <p class="info">Members: 1.5K</p>
 <a href="https://discord.gg/nH2Tj3aB">Join Server</a>
 
 <div class="dots">
-<span onclick="toggle(this,'met1')">○</span>
-<span onclick="toggle(this,'met2')">○</span>
-<span onclick="toggle(this,'met3')">○</span>
-<span onclick="toggle(this,'met4')">○</span>
-<span onclick="toggle(this,'met5')">○</span>
-<span onclick="toggle(this,'met6')">○</span>
-<span onclick="toggle(this,'met7')">○</span>
-<span onclick="toggle(this,'met8')">○</span>
-<span onclick="toggle(this,'met9')">○</span>
-<span onclick="toggle(this,'met10')">○</span>
+  <span onclick="toggle(this,'met1')">○</span>
+  <span onclick="toggle(this,'met2')">○</span>
+  <span onclick="toggle(this,'met3')">○</span>
+  <span onclick="toggle(this,'met4')">○</span>
+  <span onclick="toggle(this,'met5')">○</span>
+  <span onclick="toggle(this,'met6')">○</span>
+  <span onclick="toggle(this,'met7')">○</span>
+  <span onclick="toggle(this,'met8')">○</span>
+  <span onclick="toggle(this,'met9')">○</span>
+  <span onclick="toggle(this,'met10')">○</span>
 </div>
+
+<div class="progress"><div class="bar" id="bar-meteor"></div></div>
 </div>
 
 <!-- SMP CONNECT -->
-<div class="server">
+<div class="card server">
 <h3>🔥 SMP Connect</h3>
 <p class="role">Partner Manager</p>
 <p class="info">Members: 1.1K</p>
 <a href="https://discord.gg/jC8uXAqY">Join Server</a>
 
 <div class="dots">
-<span onclick="toggle(this,'smp1')">○</span>
-<span onclick="toggle(this,'smp2')">○</span>
-<span onclick="toggle(this,'smp3')">○</span>
-<span onclick="toggle(this,'smp4')">○</span>
-<span onclick="toggle(this,'smp5')">○</span>
-<span onclick="toggle(this,'smp6')">○</span>
-<span onclick="toggle(this,'smp7')">○</span>
-<span onclick="toggle(this,'smp8')">○</span>
-<span onclick="toggle(this,'smp9')">○</span>
-<span onclick="toggle(this,'smp10')">○</span>
-</div>
+  <span onclick="toggle(this,'smp1')">○</span>
+  <span onclick="toggle(this,'smp2')">○</span>
+  <span onclick="toggle(this,'smp3')">○</span>
+  <span onclick="toggle(this,'smp4')">○</span>
+  <span onclick="toggle(this,'smp5')">○</span>
+  <span onclick="toggle(this,'smp6')">○</span>
+  <span onclick="toggle(this,'smp7')">○</span>
+  <span onclick="toggle(this,'smp8')">○</span>
+  <span onclick="toggle(this,'smp9')">○</span>
+  <span onclick="toggle(this,'smp10')">○</span>
 </div>
 
-<!-- SPEARMACEFFA -->
-<div class="server">
+<div class="progress"><div class="bar" id="bar-smp"></div></div>
+</div>
+
+<!-- SPEAR -->
+<div class="card server">
 <h3>⚔️ SpearMaceFFA</h3>
 <p class="role">Partner Manager / Ticket Helper</p>
 <p class="info">Members: 1.1K</p>
 <a href="https://discord.gg/Cb5FHgbu">Join Server</a>
 
 <div class="dots">
-<span onclick="toggle(this,'spe1')">○</span>
-<span onclick="toggle(this,'spe2')">○</span>
-<span onclick="toggle(this,'spe3')">○</span>
-<span onclick="toggle(this,'spe4')">○</span>
-<span onclick="toggle(this,'spe5')">○</span>
-<span onclick="toggle(this,'spe6')">○</span>
-<span onclick="toggle(this,'spe7')">○</span>
-<span onclick="toggle(this,'spe8')">○</span>
-<span onclick="toggle(this,'spe9')">○</span>
-<span onclick="toggle(this,'spe10')">○</span>
+  <span onclick="toggle(this,'spe1')">○</span>
+  <span onclick="toggle(this,'spe2')">○</span>
+  <span onclick="toggle(this,'spe3')">○</span>
+  <span onclick="toggle(this,'spe4')">○</span>
+  <span onclick="toggle(this,'spe5')">○</span>
+  <span onclick="toggle(this,'spe6')">○</span>
+  <span onclick="toggle(this,'spe7')">○</span>
+  <span onclick="toggle(this,'spe8')">○</span>
+  <span onclick="toggle(this,'spe9')">○</span>
+  <span onclick="toggle(this,'spe10')">○</span>
 </div>
+
+<div class="progress"><div class="bar" id="bar-spear"></div></div>
 </div>
 
 </div>
 
-<!-- JS -->
 <script>
-function toggle(el, id) {
-  if (el.innerText === "○") {
-    el.innerText = "✔";
-    localStorage.setItem(id, "1");
+
+/* TOGGLE DOTS */
+function toggle(el,id){
+  if(el.innerText==="○"){
+    el.innerText="✔";
+    localStorage.setItem(id,"1");
   } else {
-    el.innerText = "○";
-    localStorage.setItem(id, "0");
+    el.innerText="○";
+    localStorage.setItem(id,"0");
+  }
+  updateBars();
+}
+
+/* LOAD SAVED */
+function load(){
+  document.querySelectorAll(".dots span").forEach(dot=>{
+    let id = dot.getAttribute("onclick").split("'")[1];
+    if(localStorage.getItem(id)==="1"){
+      dot.innerText="✔";
+    }
+  });
+  updateBars();
+}
+
+/* PROGRESS BARS */
+function updateBars(){
+  let servers = ["star","meteor","smp","spe"];
+
+  servers.forEach(s=>{
+    let dots = document.querySelectorAll(`[onclick*="${s}"]`);
+    let done = 0;
+
+    dots.forEach(d=>{
+      let id = d.getAttribute("onclick").split("'")[1];
+      if(localStorage.getItem(id)==="1") done++;
+    });
+
+    let percent = (done/10)*100;
+    let bar = document.getElementById("bar-"+s);
+    if(bar) bar.style.width = percent+"%";
+  });
+}
+
+/* DAILY RESET (GMT+2) */
+function checkReset(){
+  let now = new Date();
+  let utc = now.getTime() + now.getTimezoneOffset()*60000;
+  let gmt2 = new Date(utc + 2*60*60000);
+
+  if(gmt2.getHours() === 0){
+    localStorage.clear();
+    location.reload();
   }
 }
 
-window.onload = function () {
-  document.querySelectorAll(".dots span").forEach(dot => {
-    let id = dot.getAttribute("onclick").split("'")[1];
-    if (localStorage.getItem(id) === "1") {
-      dot.innerText = "✔";
-    }
-  });
-};
+load();
+checkReset();
+setInterval(checkReset,60000);
+
 </script>
 
 </body>
