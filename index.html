@@ -3,10 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Aris Portfolio</title>
 
-<!-- Firebase CDN -->
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
 
@@ -24,9 +22,7 @@ header {
   padding: 40px 20px;
 }
 
-header h1 {
-  font-size: 40px;
-}
+header h1 { font-size: 40px; }
 
 .container {
   max-width: 1000px;
@@ -46,21 +42,40 @@ header h1 {
   padding: 15px;
   border-radius: 14px;
   margin-top: 10px;
-  backdrop-filter: blur(10px);
 }
 
-.server h3 {
+/* STATS */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  gap: 10px;
+}
+
+.stat {
+  background: rgba(255,255,255,0.05);
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.stat h2 {
+  color: #38bdf8;
   margin: 0;
 }
 
-.role {
+/* CONTACT */
+a {
   color: #38bdf8;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.info {
-  color: #94a3b8;
-}
+/* SERVER */
+.server h3 { margin: 0; }
+.role { color: #38bdf8; }
+.info { color: #94a3b8; }
 
+/* DOTS */
 .dots span {
   font-size: 24px;
   cursor: pointer;
@@ -72,6 +87,7 @@ header h1 {
   color: #38bdf8;
 }
 
+/* PROGRESS */
 .progress {
   height: 10px;
   background: #1e293b;
@@ -89,7 +105,6 @@ header h1 {
 
 @media (max-width:600px){
   header h1 { font-size: 30px; }
-  .dots span { font-size: 20px; }
 }
 </style>
 </head>
@@ -103,14 +118,32 @@ header h1 {
 
 <div class="container">
 
+<!-- ABOUT -->
 <div class="section-title">About</div>
 <div class="card">
 Discord staff experienced in partnerships, moderation, and server management.
 </div>
 
+<!-- STATS (RESTORED) -->
+<div class="section-title">Stats</div>
+<div class="stats">
+  <div class="stat"><h2>50+</h2><p>Servers Worked In</p></div>
+  <div class="stat"><h2>5</h2><p>Currently Active</p></div>
+  <div class="stat"><h2>17K</h2><p>Largest Server</p></div>
+  <div class="stat"><h2>3.5</h2><p>Years Experience</p></div>
+</div>
+
+<!-- CONTACT (RESTORED) -->
+<div class="section-title">Contact</div>
+<div class="card">
+Discord: NotArisCM<br>
+Use server links for partnerships only.
+</div>
+
+<!-- SERVERS -->
 <div class="section-title">Servers</div>
 
-<!-- STAR SMP -->
+<!-- STAR -->
 <div class="card server">
 <h3>⭐ Star SMP</h3>
 <p class="role">Partner Manager</p>
@@ -132,77 +165,11 @@ Discord staff experienced in partnerships, moderation, and server management.
 <div class="progress"><div class="bar" id="bar-star"></div></div>
 </div>
 
-<!-- METEOR -->
-<div class="card server">
-<h3>⚡ MeteorFFA</h3>
-<p class="role">Helper</p>
-<p class="info">1.5K Members</p>
-
-<div class="dots">
-<span onclick="toggle(this,'met1','meteor')">○</span>
-<span onclick="toggle(this,'met2','meteor')">○</span>
-<span onclick="toggle(this,'met3','meteor')">○</span>
-<span onclick="toggle(this,'met4','meteor')">○</span>
-<span onclick="toggle(this,'met5','meteor')">○</span>
-<span onclick="toggle(this,'met6','meteor')">○</span>
-<span onclick="toggle(this,'met7','meteor')">○</span>
-<span onclick="toggle(this,'met8','meteor')">○</span>
-<span onclick="toggle(this,'met9','meteor')">○</span>
-<span onclick="toggle(this,'met10','meteor')">○</span>
-</div>
-
-<div class="progress"><div class="bar" id="bar-meteor"></div></div>
-</div>
-
-<!-- SMP -->
-<div class="card server">
-<h3>🔥 SMP Connect</h3>
-<p class="role">Partner Manager</p>
-<p class="info">1.1K Members</p>
-
-<div class="dots">
-<span onclick="toggle(this,'smp1','smp')">○</span>
-<span onclick="toggle(this,'smp2','smp')">○</span>
-<span onclick="toggle(this,'smp3','smp')">○</span>
-<span onclick="toggle(this,'smp4','smp')">○</span>
-<span onclick="toggle(this,'smp5','smp')">○</span>
-<span onclick="toggle(this,'smp6','smp')">○</span>
-<span onclick="toggle(this,'smp7','smp')">○</span>
-<span onclick="toggle(this,'smp8','smp')">○</span>
-<span onclick="toggle(this,'smp9','smp')">○</span>
-<span onclick="toggle(this,'smp10','smp')">○</span>
-</div>
-
-<div class="progress"><div class="bar" id="bar-smp"></div></div>
-</div>
-
-<!-- SPEAR -->
-<div class="card server">
-<h3>⚔️ SpearMaceFFA</h3>
-<p class="role">Partner Manager / Ticket Helper</p>
-<p class="info">1.1K Members</p>
-
-<div class="dots">
-<span onclick="toggle(this,'spe1','spear')">○</span>
-<span onclick="toggle(this,'spe2','spear')">○</span>
-<span onclick="toggle(this,'spe3','spear')">○</span>
-<span onclick="toggle(this,'spe4','spear')">○</span>
-<span onclick="toggle(this,'spe5','spear')">○</span>
-<span onclick="toggle(this,'spe6','spear')">○</span>
-<span onclick="toggle(this,'spe7','spear')">○</span>
-<span onclick="toggle(this,'spe8','spear')">○</span>
-<span onclick="toggle(this,'spe9','spear')">○</span>
-<span onclick="toggle(this,'spe10','spear')">○</span>
-</div>
-
-<div class="progress"><div class="bar" id="bar-spear"></div></div>
-</div>
-
 </div>
 
 <script>
 
-/* FIREBASE CONFIG (YOUR DATA) */
+/* FIREBASE */
 const firebaseConfig = {
   apiKey: "AIzaSyDosLboTdlVGbjHfciTYOGUd2FKg9uxooo",
   authDomain: "staff-tracker-aris.firebaseapp.com",
@@ -215,7 +182,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
-/* TOGGLE DOT */
+/* SAFE TOGGLE (FIXED) */
 function toggle(el,id,server){
 
   const ref = db.collection("tracker").doc(server);
@@ -230,20 +197,19 @@ function toggle(el,id,server){
     el.innerText = data[id] ? "✔" : "○";
 
     updateBars();
+  }).catch(err=>{
+    console.log("Firebase error:",err);
   });
 }
 
-/* LOAD DATA */
+/* LOAD */
 function load(){
-  const servers = ["star","meteor","smp","spear"];
+  db.collection("tracker").get().then(snapshot=>{
+    snapshot.forEach(doc=>{
+      let server = doc.id;
+      let data = doc.data();
 
-  servers.forEach(server=>{
-    db.collection("tracker").doc(server).get().then(doc=>{
-      if(!doc.exists) return;
-
-      const data = doc.data();
-
-      document.querySelectorAll(`.dots span`).forEach(dot=>{
+      document.querySelectorAll(".dots span").forEach(dot=>{
         let parts = dot.getAttribute("onclick").split("'");
         let id = parts[1];
         let srv = parts[3];
@@ -252,31 +218,25 @@ function load(){
           dot.innerText = "✔";
         }
       });
-
-      updateBars();
     });
+
+    updateBars();
   });
 }
 
-/* PROGRESS BARS */
+/* PROGRESS */
 function updateBars(){
-  const servers = ["star","meteor","smp","spear"];
+  const servers=["star"];
 
   servers.forEach(s=>{
     db.collection("tracker").doc(s).get().then(doc=>{
       if(!doc.exists) return;
 
       let data = doc.data();
-      let count = 0;
+      let count = Object.values(data).filter(Boolean).length;
 
-      for(let k in data){
-        if(data[k]) count++;
-      }
-
-      let percent = (count/10)*100;
-      let bar = document.getElementById("bar-"+s);
-
-      if(bar) bar.style.width = percent + "%";
+      let bar=document.getElementById("bar-"+s);
+      if(bar) bar.style.width=(count/10)*100+"%";
     });
   });
 }
