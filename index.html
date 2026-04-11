@@ -30,7 +30,6 @@ header h1 { font-size: 40px; }
   padding: 15px;
 }
 
-/* SECTIONS */
 .section-title {
   color: #38bdf8;
   border-left: 4px solid #38bdf8;
@@ -38,7 +37,6 @@ header h1 { font-size: 40px; }
   margin-top: 25px;
 }
 
-/* CARDS */
 .card {
   background: rgba(255,255,255,0.05);
   padding: 15px;
@@ -46,7 +44,6 @@ header h1 { font-size: 40px; }
   margin-top: 10px;
 }
 
-/* STATS */
 .stats {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
@@ -62,18 +59,15 @@ header h1 { font-size: 40px; }
 
 .stat h2 { color: #38bdf8; margin: 0; }
 
-/* WARNINGS */
 .warning {
   color: #facc15;
   margin: 5px 0;
 }
 
-/* SERVER */
 .server h3 { margin: 0; }
 .role { color: #38bdf8; }
 .info { color: #94a3b8; }
 
-/* DOTS */
 .dots span {
   font-size: 24px;
   cursor: pointer;
@@ -83,7 +77,6 @@ header h1 { font-size: 40px; }
 
 .dots span:hover { color: #38bdf8; }
 
-/* PROGRESS */
 .progress {
   height: 10px;
   background: #1e293b;
@@ -114,13 +107,11 @@ header h1 { font-size: 40px; }
 
 <div class="container">
 
-<!-- ABOUT -->
 <div class="section-title">About</div>
 <div class="card">
 Discord staff experienced in partnerships, moderation, and server management.
 </div>
 
-<!-- STATS -->
 <div class="section-title">Stats</div>
 <div class="stats">
   <div class="stat"><h2>50+</h2><p>Servers Worked In</p></div>
@@ -129,23 +120,20 @@ Discord staff experienced in partnerships, moderation, and server management.
   <div class="stat"><h2>3.5</h2><p>Years Experience</p></div>
 </div>
 
-<!-- WARNINGS -->
 <div class="section-title">Warnings</div>
 <div class="card">
   <div class="warning">Don't DM me for stupid reasons</div>
-  <div class="warning">There isn’t a 100% chance I will be staff in your server if you DM me</div>
-  <div class="warning">I will not make any websites for anyone</div>
-  <div class="warning">Don’t beg for staff in servers I’m in or DM me about it</div>
-  <div class="warning">If you want to partner, use the server links on the website</div>
+  <div class="warning">I don’t guarantee staff positions if you DM me</div>
+  <div class="warning">I will not make websites for anyone</div>
+  <div class="warning">Don’t beg for staff</div>
+  <div class="warning">Use server links for partnerships</div>
 </div>
 
-<!-- CONTACT -->
 <div class="section-title">Contact</div>
 <div class="card">
 Discord: NotArisCM
 </div>
 
-<!-- SERVERS -->
 <div class="section-title">Servers</div>
 
 <!-- STAR -->
@@ -253,16 +241,43 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
+/* OWNER SYSTEM */
+let OWNER_KEY = localStorage.getItem("owner_key");
+
+if (!OWNER_KEY) {
+  OWNER_KEY = "owner_" + Math.random().toString(36).substring(2);
+  localStorage.setItem("owner_key", OWNER_KEY);
+}
+
+const ownerRef = db.collection("system").doc("owner");
+
+ownerRef.get().then(doc => {
+  if (!doc.exists) ownerRef.set({ owner: OWNER_KEY });
+});
+
+let IS_OWNER = false;
+
+ownerRef.onSnapshot(doc => {
+  if (doc.exists && doc.data().owner === OWNER_KEY) {
+    IS_OWNER = true;
+  } else {
+    IS_OWNER = false;
+  }
+});
+
 /* TOGGLE */
 function toggle(el,id,server){
+
+  if(!IS_OWNER){
+    alert("Read-only mode");
+    return;
+  }
 
   const ref = db.collection("tracker").doc(server);
 
   ref.get().then(doc=>{
     let data = doc.exists ? doc.data() : {};
-
     data[id] = !data[id];
-
     ref.set(data);
 
     el.innerText = data[id] ? "✔" : "○";
