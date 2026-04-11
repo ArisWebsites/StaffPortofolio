@@ -30,6 +30,7 @@ header h1 { font-size: 40px; }
   padding: 15px;
 }
 
+/* SECTIONS */
 .section-title {
   color: #38bdf8;
   border-left: 4px solid #38bdf8;
@@ -37,6 +38,7 @@ header h1 { font-size: 40px; }
   margin-top: 25px;
 }
 
+/* CARDS */
 .card {
   background: rgba(255,255,255,0.05);
   padding: 15px;
@@ -58,16 +60,12 @@ header h1 { font-size: 40px; }
   text-align: center;
 }
 
-.stat h2 {
-  color: #38bdf8;
-  margin: 0;
-}
+.stat h2 { color: #38bdf8; margin: 0; }
 
-/* CONTACT */
-a {
-  color: #38bdf8;
-  text-decoration: none;
-  font-weight: bold;
+/* WARNINGS */
+.warning {
+  color: #facc15;
+  margin: 5px 0;
 }
 
 /* SERVER */
@@ -79,13 +77,11 @@ a {
 .dots span {
   font-size: 24px;
   cursor: pointer;
-  margin-right: 5px;
+  margin-right: 6px;
   color: #64748b;
 }
 
-.dots span:hover {
-  color: #38bdf8;
-}
+.dots span:hover { color: #38bdf8; }
 
 /* PROGRESS */
 .progress {
@@ -124,20 +120,29 @@ a {
 Discord staff experienced in partnerships, moderation, and server management.
 </div>
 
-<!-- STATS (RESTORED) -->
+<!-- STATS -->
 <div class="section-title">Stats</div>
 <div class="stats">
   <div class="stat"><h2>50+</h2><p>Servers Worked In</p></div>
-  <div class="stat"><h2>5</h2><p>Currently Active</p></div>
+  <div class="stat"><h2>5</h2><p>Active Servers</p></div>
   <div class="stat"><h2>17K</h2><p>Largest Server</p></div>
   <div class="stat"><h2>3.5</h2><p>Years Experience</p></div>
 </div>
 
-<!-- CONTACT (RESTORED) -->
+<!-- WARNINGS -->
+<div class="section-title">Warnings</div>
+<div class="card">
+  <div class="warning">Don't DM me for stupid reasons</div>
+  <div class="warning">There isn’t a 100% chance I will be staff in your server if you DM me</div>
+  <div class="warning">I will not make any websites for anyone</div>
+  <div class="warning">Don’t beg for staff in servers I’m in or DM me about it</div>
+  <div class="warning">If you want to partner, use the server links on the website</div>
+</div>
+
+<!-- CONTACT -->
 <div class="section-title">Contact</div>
 <div class="card">
-Discord: NotArisCM<br>
-Use server links for partnerships only.
+Discord: NotArisCM
 </div>
 
 <!-- SERVERS -->
@@ -165,6 +170,72 @@ Use server links for partnerships only.
 <div class="progress"><div class="bar" id="bar-star"></div></div>
 </div>
 
+<!-- METEOR -->
+<div class="card server">
+<h3>⚡ MeteorFFA</h3>
+<p class="role">Helper</p>
+<p class="info">1.5K Members</p>
+
+<div class="dots">
+<span onclick="toggle(this,'met1','meteor')">○</span>
+<span onclick="toggle(this,'met2','meteor')">○</span>
+<span onclick="toggle(this,'met3','meteor')">○</span>
+<span onclick="toggle(this,'met4','meteor')">○</span>
+<span onclick="toggle(this,'met5','meteor')">○</span>
+<span onclick="toggle(this,'met6','meteor')">○</span>
+<span onclick="toggle(this,'met7','meteor')">○</span>
+<span onclick="toggle(this,'met8','meteor')">○</span>
+<span onclick="toggle(this,'met9','meteor')">○</span>
+<span onclick="toggle(this,'met10','meteor')">○</span>
+</div>
+
+<div class="progress"><div class="bar" id="bar-meteor"></div></div>
+</div>
+
+<!-- SMP -->
+<div class="card server">
+<h3>🔥 SMP Connect</h3>
+<p class="role">Partner Manager</p>
+<p class="info">1.1K Members</p>
+
+<div class="dots">
+<span onclick="toggle(this,'smp1','smp')">○</span>
+<span onclick="toggle(this,'smp2','smp')">○</span>
+<span onclick="toggle(this,'smp3','smp')">○</span>
+<span onclick="toggle(this,'smp4','smp')">○</span>
+<span onclick="toggle(this,'smp5','smp')">○</span>
+<span onclick="toggle(this,'smp6','smp')">○</span>
+<span onclick="toggle(this,'smp7','smp')">○</span>
+<span onclick="toggle(this,'smp8','smp')">○</span>
+<span onclick="toggle(this,'smp9','smp')">○</span>
+<span onclick="toggle(this,'smp10','smp')">○</span>
+</div>
+
+<div class="progress"><div class="bar" id="bar-smp"></div></div>
+</div>
+
+<!-- SPEAR -->
+<div class="card server">
+<h3>⚔️ SpearMaceFFA</h3>
+<p class="role">Partner Manager / Ticket Helper</p>
+<p class="info">1.1K Members</p>
+
+<div class="dots">
+<span onclick="toggle(this,'spe1','spear')">○</span>
+<span onclick="toggle(this,'spe2','spear')">○</span>
+<span onclick="toggle(this,'spe3','spear')">○</span>
+<span onclick="toggle(this,'spe4','spear')">○</span>
+<span onclick="toggle(this,'spe5','spear')">○</span>
+<span onclick="toggle(this,'spe6','spear')">○</span>
+<span onclick="toggle(this,'spe7','spear')">○</span>
+<span onclick="toggle(this,'spe8','spear')">○</span>
+<span onclick="toggle(this,'spe9','spear')">○</span>
+<span onclick="toggle(this,'spe10','spear')">○</span>
+</div>
+
+<div class="progress"><div class="bar" id="bar-spear"></div></div>
+</div>
+
 </div>
 
 <script>
@@ -182,7 +253,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
-/* SAFE TOGGLE (FIXED) */
+/* TOGGLE */
 function toggle(el,id,server){
 
   const ref = db.collection("tracker").doc(server);
@@ -197,43 +268,44 @@ function toggle(el,id,server){
     el.innerText = data[id] ? "✔" : "○";
 
     updateBars();
-  }).catch(err=>{
-    console.log("Firebase error:",err);
   });
 }
 
 /* LOAD */
 function load(){
-  db.collection("tracker").get().then(snapshot=>{
-    snapshot.forEach(doc=>{
-      let server = doc.id;
-      let data = doc.data();
-
-      document.querySelectorAll(".dots span").forEach(dot=>{
-        let parts = dot.getAttribute("onclick").split("'");
-        let id = parts[1];
-        let srv = parts[3];
-
-        if(srv === server && data[id]){
-          dot.innerText = "✔";
-        }
-      });
-    });
-
-    updateBars();
-  });
-}
-
-/* PROGRESS */
-function updateBars(){
-  const servers=["star"];
+  const servers=["star","meteor","smp","spear"];
 
   servers.forEach(s=>{
     db.collection("tracker").doc(s).get().then(doc=>{
       if(!doc.exists) return;
 
-      let data = doc.data();
-      let count = Object.values(data).filter(Boolean).length;
+      let data=doc.data();
+
+      document.querySelectorAll(".dots span").forEach(dot=>{
+        let p=dot.getAttribute("onclick").split("'");
+        let id=p[1];
+        let srv=p[3];
+
+        if(srv===s && data[id]){
+          dot.innerText="✔";
+        }
+      });
+
+      updateBars();
+    });
+  });
+}
+
+/* BARS */
+function updateBars(){
+  const servers=["star","meteor","smp","spear"];
+
+  servers.forEach(s=>{
+    db.collection("tracker").doc(s).get().then(doc=>{
+      if(!doc.exists) return;
+
+      let data=doc.data();
+      let count=Object.values(data).filter(Boolean).length;
 
       let bar=document.getElementById("bar-"+s);
       if(bar) bar.style.width=(count/10)*100+"%";
