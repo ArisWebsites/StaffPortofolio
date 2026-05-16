@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>One Question</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #05010d;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at top, rgba(168,85,247,0.25), transparent 40%),
+        radial-gradient(circle at bottom, rgba(236,72,153,0.2), transparent 40%);
+      z-index: -2;
+    }
+
+    .stars {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.5;
+      animation: pulse 4s infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.8); }
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 80px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(20px);
+    }
+
+    .logo {
+      font-size: 28px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+
+    .logo span {
+      color: #ff71c8;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+    }
+
+    .submit-btn {
+      background: linear-gradient(90deg,#ec4899,#8b5cf6);
+      border: none;
+      color: white;
+      padding: 16px 34px;
+      border-radius: 999px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 0 40px rgba(236,72,153,0.4);
+    }
+
+    .submit-btn:hover {
+      transform: scale(1.05);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 120px 20px 80px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .hero-top {
+      color: #ff9bd9;
+      text-transform: uppercase;
+      letter-spacing: 0.4em;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 120px;
+      font-weight: 600;
+      line-height: 0.95;
+      margin-bottom: 30px;
+    }
+
+    .hero p {
+      color: rgba(255,255,255,0.65);
+      font-size: 22px;
+      line-height: 1.7;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .cta {
+      margin-top: 50px;
+      background: linear-gradient(90deg,#ec4899,#8b5cf6);
+      border: none;
+      color: white;
+      padding: 22px 48px;
+      border-radius: 999px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 0 60px rgba(168,85,247,0.4);
+    }
+
+    .cta:hover {
+      transform: scale(1.05);
+    }
+
+    .question-section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 60px 20px 120px;
+    }
+
+    .question-label {
+      text-align: center;
+      color: #ff9bd9;
+      text-transform: uppercase;
+      letter-spacing: 0.4em;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .question {
+      font-family: 'Cormorant Garamond', serif;
+      text-align: center;
+      font-size: 72px;
+      margin-bottom: 60px;
+    }
+
+    .input-box {
+      max-width: 850px;
+      margin: auto auto 70px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(20px);
+      border-radius: 35px;
+      padding: 30px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 180px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 25px;
+      padding: 24px;
+      color: white;
+      font-size: 18px;
+      resize: none;
+      outline: none;
+    }
+
+    textarea:focus {
+      border-color: #ff71c8;
+    }
+
+    .input-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .input-bottom p {
+      color: rgba(255,255,255,0.45);
+    }
+
+    .answers-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .answers-header h2 {
+      font-size: 42px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .live {
+      color: #ff71c8;
+      margin-top: 5px;
+    }
+
+    .filter-btn {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: white;
+      padding: 14px 24px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 30px;
+      padding: 32px;
+      backdrop-filter: blur(20px);
+      transition: 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 50px rgba(168,85,247,0.18);
+    }
+
+    .card-text {
+      font-size: 24px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.92);
+      margin-bottom: 60px;
+    }
+
+    .card-bottom {
+      display: flex;
+      justify-content: space-between;
+      color: rgba(255,255,255,0.45);
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        padding: 25px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      h1 {
+        font-size: 70px;
+      }
+
+      .question {
+        font-size: 48px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stars" id="stars"></div>
+
+  <nav>
+    <div class="logo">One <span>Question</span></div>
+
+    <div class="nav-links">
+      <div>About</div>
+      <div>Questions</div>
+      <div>Live Feed</div>
+    </div>
+
+    <button class="submit-btn">Submit</button>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-top">Anonymous Social Experiment</div>
+
+    <h1>One Question.</h1>
+
+    <p>
+      Thousands of strangers. One honest question at a time.
+      <br>
+      No names. No filters. Just truth.
+    </p>
+
+    <button class="cta">Answer Today’s Question →</button>
+  </section>
+
+  <section class="question-section">
+    <div class="question-label">Today’s Question</div>
+
+    <div class="question" id="question"></div>
+
+    <div class="input-box">
+      <textarea placeholder="Type something honest..." id="answerInput"></textarea>
+
+      <div class="input-bottom">
+        <p>🔒 Completely anonymous.</p>
+
+        <button class="submit-btn" onclick="submitAnswer()">
+          Submit Truth
+        </button>
+      </div>
+    </div>
+
+    <div class="answers-header">
+      <div>
+        <h2>Latest Answers</h2>
+        <div class="live">● Live</div>
+      </div>
+
+      <button class="filter-btn">Filter</button>
+    </div>
+
+    <div class="cards" id="cards"></div>
+  </section>
+
+  <script>
+    const questions = [
+      'What do you regret the most?',
+      'What ruined your childhood?',
+      'What memory still hurts?',
+      'What changed you forever?',
+      'What are you secretly afraid of?'
+    ];
+
+    const answers = [
+      'I regret staying somewhere I already knew I didn’t belong.',
+      'Spending years trying to be enough for someone who never cared.',
+      'I still miss someone I pretend I forgot.',
+      'I wish I took more risks when I was younger.',
+      'I treated people badly because I hated myself.'
+    ];
+
+    document.getElementById('question').innerText =
+      questions[Math.floor(Math.random() * questions.length)];
+
+    function renderAnswers() {
+      const cards = document.getElementById('cards');
+      cards.innerHTML = '';
+
+      answers.forEach((answer, index) => {
+        const card = document.createElement('div');
+        card.className = 'card';
+
+        card.innerHTML = `
+          <div class="card-text">“${answer}”</div>
+
+          <div class="card-bottom">
+            <span>${index + 1}m ago</span>
+            <span>♡ ${120 + index * 17}</span>
+          </div>
+        `;
+
+        cards.appendChild(card);
+      });
+    }
+
+    function submitAnswer() {
+      const input = document.getElementById('answerInput');
+
+      if(input.value.trim() === '') return;
+
+      answers.unshift(input.value);
+      input.value = '';
+
+      renderAnswers();
+    }
+
+    renderAnswers();
+
+    const stars = document.getElementById('stars');
+
+    for(let i = 0; i < 80; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.animationDuration = (2 + Math.random() * 5) + 's';
+      stars.appendChild(star);
+    }
+  </script>
+
+</body>
+</html>
